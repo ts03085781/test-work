@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FaPeopleGroup } from 'react-icons/fa6';
-import '../assets/searchBar.css';
+import '../assets/styles/searchBar.css';
 
 type SearchBarProps = {
   onSearch: (value: string) => void;
