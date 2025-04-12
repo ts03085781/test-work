@@ -1,10 +1,15 @@
 import { useState } from 'react';
+import { SearchBar } from './components/SearchBar';
 import './App.css';
 
 function App() {
+  const onSearch = (value: string) => {
+    console.log(value);
+  };
+
   return (
     <div>
-      <h1>Ready to Start</h1>
+      <SearchBar onSearch={onSearch} />
     </div>
   );
 }
