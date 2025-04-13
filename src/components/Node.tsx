@@ -1,17 +1,13 @@
-import { useState } from 'react';
 import '../assets/styles/node.css';
 import { NodeType } from '../constants/enum';
-
-type NodeProps = {
+interface NodePropsInterface {
   code: string;
   name: string;
   registration_date: Date;
   introducer_code: string;
-  l: NodeProps | null;
-  r: NodeProps | null;
   nodeType: NodeType;
-  onClickCode: (code: string) => void;
-};
+  onClickNodeCode: (code: string) => void;
+}
 
 export const Node = ({
   code,
@@ -19,20 +15,24 @@ export const Node = ({
   registration_date,
   introducer_code,
   nodeType,
-  onClickCode,
-}: NodeProps) => {
-  const handleClickCode = () => {
-    onClickCode(code);
+  onClickNodeCode,
+}: NodePropsInterface) => {
+  const handleClickNodeCode = () => {
+    onClickNodeCode(code);
+  };
+
+  const setRegistrationDate = (registration_date: Date) => {
+    return new Date(registration_date).toLocaleDateString();
   };
 
   return (
     <div className={`node ${nodeType}`}>
-      <span className="code" onClick={handleClickCode}>
-        {code}
+      <span className="code" onClick={handleClickNodeCode}>
+        保戶編號：{code}
       </span>
-      <span>{name}</span>
-      <span>{registration_date.toLocaleDateString()}</span>
-      <span>{introducer_code}</span>
+      <span>保戶姓名：{name}</span>
+      <span>加入日期：{setRegistrationDate(registration_date)}</span>
+      <span>介紹人保戶編號：{introducer_code}</span>
     </div>
   );
 };
