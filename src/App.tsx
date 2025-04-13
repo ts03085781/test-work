@@ -1,29 +1,64 @@
 import { useState } from 'react';
 import { SearchBar } from './components/SearchBar';
-import { Node } from './components/Node';
+import { BinaryTree } from './components/BinaryTree';
 import './App.css';
-import { NodeType } from './constants/enum';
+import { NodeInterface } from './constants/interface';
+
 function App() {
-  const onSearch = (value: string) => {
-    console.log(value);
+  const [rootNode, setRootNode] = useState<NodeInterface | null>(null);
+
+  const onSearch = async (code: string) => {
+    try {
+      const response = await fetch(`/api/policyholders?code=${code}`);
+      const data = (await response.json()) as NodeInterface;
+      if (data) {
+        setRootNode({ ...data });
+      } else {
+        alert('No data found');
+      }
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
   };
 
-  const onClickCode = (code: string) => {
-    console.log(code);
+  const onClickNodeCode = async (code: string) => {
+    try {
+      const response = await fetch(`/api/policyholders?code=${code}`);
+      const data = (await response.json()) as NodeInterface;
+      if (data) {
+        setRootNode({ ...data });
+      } else {
+        alert('No data found');
+      }
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
+  const onClickPreviousLevel = async (code: string) => {
+    try {
+      const response = await fetch(
+        `/api/policyholders/${code}/top?code=${code}`
+      );
+      const data = (await response.json()) as NodeInterface;
+      if (data) {
+        setRootNode({ ...data });
+      } else {
+        alert('No data found');
+      }
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
   };
 
   return (
     <div>
       <SearchBar onSearch={onSearch} />
-      <Node
-        code="123"
-        name="John Doe"
-        registration_date={new Date()}
-        introducer_code="123"
-        l={null}
-        r={null}
-        nodeType={NodeType.ROOT}
-        onClickCode={onClickCode}
+      <BinaryTree
+        rootNodeCode={rootNode?.code}
+        nodeTreeData={rootNode}
+        onClickNodeCode={onClickNodeCode}
+        onClickPreviousLevel={onClickPreviousLevel}
       />
     </div>
   );
