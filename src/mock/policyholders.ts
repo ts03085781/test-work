@@ -4,25 +4,25 @@ import { MockMethod } from 'vite-plugin-mock';
 
 const mockData_1 = {
   code: '01',
-  name: '保戶 1',
+  name: '1',
   registration_date: new Date('2024-01-01'),
   introducer_code: '',
   l: [
     {
       code: '02',
-      name: '保戶 2',
+      name: '2',
       registration_date: new Date('2024-01-02'),
       introducer_code: '01',
       l: [
         {
           code: '04',
-          name: '保戶 4',
+          name: '4',
           registration_date: new Date('2024-01-02'),
           introducer_code: '01',
           l: [
             {
               code: '08',
-              name: '保戶 8',
+              name: '8',
               registration_date: new Date('2024-01-02'),
               introducer_code: '01',
             },
@@ -30,7 +30,7 @@ const mockData_1 = {
           r: [
             {
               code: '09',
-              name: '保戶 9',
+              name: '9',
               registration_date: new Date('2024-01-03'),
               introducer_code: '02',
             },
@@ -40,13 +40,13 @@ const mockData_1 = {
       r: [
         {
           code: '05',
-          name: '保戶 5',
+          name: '5',
           registration_date: new Date('2024-01-03'),
           introducer_code: '02',
           l: [
             {
               code: '10',
-              name: '保戶 10',
+              name: '10',
               registration_date: new Date('2024-01-02'),
               introducer_code: '01',
             },
@@ -54,7 +54,7 @@ const mockData_1 = {
           r: [
             {
               code: '11',
-              name: '保戶 11',
+              name: '11',
               registration_date: new Date('2024-01-03'),
               introducer_code: '02',
             },
@@ -66,19 +66,19 @@ const mockData_1 = {
   r: [
     {
       code: '03',
-      name: '保戶 3',
+      name: '3',
       registration_date: new Date('2024-01-03'),
       introducer_code: '01',
       l: [
         {
           code: '06',
-          name: '保戶 6',
+          name: '6',
           registration_date: new Date('2024-01-02'),
           introducer_code: '01',
           l: [
             {
               code: '12',
-              name: '保戶 12',
+              name: '12',
               registration_date: new Date('2024-01-02'),
               introducer_code: '01',
             },
@@ -86,7 +86,7 @@ const mockData_1 = {
           r: [
             {
               code: '13',
-              name: '保戶 13',
+              name: '13',
               registration_date: new Date('2024-01-03'),
               introducer_code: '02',
             },
@@ -96,13 +96,13 @@ const mockData_1 = {
       r: [
         {
           code: '07',
-          name: '保戶 7',
+          name: '7',
           registration_date: new Date('2024-01-03'),
           introducer_code: '02',
           l: [
             {
               code: '14',
-              name: '保戶 14',
+              name: '14',
               registration_date: new Date('2024-01-02'),
               introducer_code: '01',
             },
@@ -110,7 +110,7 @@ const mockData_1 = {
           r: [
             {
               code: '15',
-              name: '保戶 15',
+              name: '15',
               registration_date: new Date('2024-01-03'),
               introducer_code: '02',
             },
@@ -123,19 +123,19 @@ const mockData_1 = {
 
 const mockData_2 = {
   code: '02',
-  name: '保戶 2',
+  name: '2',
   registration_date: new Date('2024-01-02'),
   introducer_code: '01',
   l: [
     {
       code: '04',
-      name: '保戶 4',
+      name: '4',
       registration_date: new Date('2024-01-02'),
       introducer_code: '01',
       l: [
         {
           code: '08',
-          name: '保戶 8',
+          name: '8',
           registration_date: new Date('2024-01-02'),
           introducer_code: '01',
         },
@@ -143,7 +143,7 @@ const mockData_2 = {
       r: [
         {
           code: '09',
-          name: '保戶 9',
+          name: '9',
           registration_date: new Date('2024-01-03'),
           introducer_code: '02',
         },
@@ -153,13 +153,13 @@ const mockData_2 = {
   r: [
     {
       code: '05',
-      name: '保戶 5',
+      name: '5',
       registration_date: new Date('2024-01-03'),
       introducer_code: '02',
       l: [
         {
           code: '10',
-          name: '保戶 10',
+          name: '10',
           registration_date: new Date('2024-01-02'),
           introducer_code: '01',
         },
@@ -167,7 +167,7 @@ const mockData_2 = {
       r: [
         {
           code: '11',
-          name: '保戶 11',
+          name: '11',
           registration_date: new Date('2024-01-03'),
           introducer_code: '02',
         },
@@ -178,19 +178,19 @@ const mockData_2 = {
 
 const mockData_3 = {
   code: '03',
-  name: '保戶 3',
+  name: '3',
   registration_date: new Date('2024-01-03'),
   introducer_code: '01',
   l: [
     {
       code: '06',
-      name: '保戶 6',
+      name: '6',
       registration_date: new Date('2024-01-02'),
       introducer_code: '01',
       l: [
         {
           code: '12',
-          name: '保戶 12',
+          name: '12',
           registration_date: new Date('2024-01-02'),
           introducer_code: '01',
         },
@@ -198,7 +198,7 @@ const mockData_3 = {
       r: [
         {
           code: '13',
-          name: '保戶 13',
+          name: '13',
           registration_date: new Date('2024-01-03'),
           introducer_code: '02',
         },
@@ -208,13 +208,13 @@ const mockData_3 = {
   r: [
     {
       code: '07',
-      name: '保戶 7',
+      name: '7',
       registration_date: new Date('2024-01-03'),
       introducer_code: '02',
       l: [
         {
           code: '14',
-          name: '保戶 14',
+          name: '14',
           registration_date: new Date('2024-01-02'),
           introducer_code: '01',
         },
@@ -222,7 +222,7 @@ const mockData_3 = {
       r: [
         {
           code: '15',
-          name: '保戶 15',
+          name: '15',
           registration_date: new Date('2024-01-03'),
           introducer_code: '02',
         },
@@ -233,13 +233,13 @@ const mockData_3 = {
 
 const mockData_4 = {
   code: '04',
-  name: '保戶 4',
+  name: '4',
   registration_date: new Date('2024-01-02'),
   introducer_code: '01',
   l: [
     {
       code: '08',
-      name: '保戶 8',
+      name: '8',
       registration_date: new Date('2024-01-02'),
       introducer_code: '01',
     },
@@ -247,7 +247,7 @@ const mockData_4 = {
   r: [
     {
       code: '09',
-      name: '保戶 9',
+      name: '9',
       registration_date: new Date('2024-01-03'),
       introducer_code: '02',
     },
@@ -256,13 +256,13 @@ const mockData_4 = {
 
 const mockData_5 = {
   code: '05',
-  name: '保戶 5',
+  name: '5',
   registration_date: new Date('2024-01-03'),
   introducer_code: '02',
   l: [
     {
       code: '10',
-      name: '保戶 10',
+      name: '10',
       registration_date: new Date('2024-01-02'),
       introducer_code: '01',
     },
@@ -270,7 +270,7 @@ const mockData_5 = {
   r: [
     {
       code: '11',
-      name: '保戶 11',
+      name: '11',
       registration_date: new Date('2024-01-03'),
       introducer_code: '02',
     },
@@ -279,13 +279,13 @@ const mockData_5 = {
 
 const mockData_6 = {
   code: '06',
-  name: '保戶 6',
+  name: '6',
   registration_date: new Date('2024-01-02'),
   introducer_code: '01',
   l: [
     {
       code: '12',
-      name: '保戶 12',
+      name: '12',
       registration_date: new Date('2024-01-02'),
       introducer_code: '01',
     },
@@ -293,7 +293,7 @@ const mockData_6 = {
   r: [
     {
       code: '13',
-      name: '保戶 13',
+      name: '13',
       registration_date: new Date('2024-01-03'),
       introducer_code: '02',
     },
@@ -302,13 +302,13 @@ const mockData_6 = {
 
 const mockData_7 = {
   code: '07',
-  name: '保戶 7',
+  name: '7',
   registration_date: new Date('2024-01-03'),
   introducer_code: '02',
   l: [
     {
       code: '14',
-      name: '保戶 14',
+      name: '14',
       registration_date: new Date('2024-01-02'),
       introducer_code: '01',
     },
@@ -316,7 +316,7 @@ const mockData_7 = {
   r: [
     {
       code: '15',
-      name: '保戶 15',
+      name: '15',
       registration_date: new Date('2024-01-03'),
       introducer_code: '02',
     },
@@ -325,58 +325,74 @@ const mockData_7 = {
 
 const mockData_8 = {
   code: '08',
-  name: '保戶 8',
+  name: '8',
   registration_date: new Date('2024-01-02'),
   introducer_code: '01',
+  l: [],
+  r: [],
 };
 
 const mockData_9 = {
   code: '09',
-  name: '保戶 9',
+  name: '9',
   registration_date: new Date('2024-01-03'),
   introducer_code: '02',
+  l: [],
+  r: [],
 };
 
 const mockData_10 = {
   code: '10',
-  name: '保戶 10',
+  name: '10',
   registration_date: new Date('2024-01-02'),
   introducer_code: '01',
+  l: [],
+  r: [],
 };
 
 const mockData_11 = {
   code: '11',
-  name: '保戶 11',
+  name: '11',
   registration_date: new Date('2024-01-03'),
   introducer_code: '02',
+  l: [],
+  r: [],
 };
 
 const mockData_12 = {
   code: '12',
-  name: '保戶 12',
+  name: '12',
   registration_date: new Date('2024-01-02'),
   introducer_code: '01',
+  l: [],
+  r: [],
 };
 
 const mockData_13 = {
   code: '13',
-  name: '保戶 13',
+  name: '13',
   registration_date: new Date('2024-01-03'),
   introducer_code: '02',
+  l: [],
+  r: [],
 };
 
 const mockData_14 = {
   code: '14',
-  name: '保戶 14',
+  name: '14',
   registration_date: new Date('2024-01-02'),
   introducer_code: '01',
+  l: [],
+  r: [],
 };
 
 const mockData_15 = {
   code: '15',
-  name: '保戶 15',
+  name: '15',
   registration_date: new Date('2024-01-03'),
   introducer_code: '02',
+  l: [],
+  r: [],
 };
 
 export default [
