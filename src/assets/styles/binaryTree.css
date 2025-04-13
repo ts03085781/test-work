@@ -3,6 +3,48 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
+}
+
+.left-line {
+  &:after {
+    content: '';
+    display: block;
+    width: 50%;
+    height: 26px;
+    border-top: 4px solid #000;
+    border-left: 4px solid #000;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
+
+.right-line {
+  &:after {
+    content: '';
+    display: block;
+    width: 50%;
+    height: 26px;
+    border-top: 4px solid #000;
+    border-right: 4px solid #000;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+.bottom-line {
+  &:before {
+    content: '';
+    display: block;
+    width: 50%;
+    height: 34px;
+    border-left: 4px solid #000;
+    position: absolute;
+    top: 142px;
+    right: 0;
+  }
 }
 
 .node-container {
@@ -16,7 +58,7 @@
 .previous-level-container {
   position: absolute;
   top: calc(50% - 34px);
-  left: calc(50% + 120px);
+  left: calc(50% + 110px);
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -7,6 +7,8 @@ import { IoIosArrowUp } from 'react-icons/io';
 interface BinaryTreeInterface {
   rootNodeCode: string | undefined;
   nodeTreeData: NodeInterface | null;
+  isLeftNode: boolean;
+  isRightNode: boolean;
   onClickNodeCode: (code: string) => void;
   onClickPreviousLevel?: (code: string) => void;
 }
@@ -14,6 +16,8 @@ interface BinaryTreeInterface {
 export const BinaryTree = ({
   rootNodeCode,
   nodeTreeData,
+  isLeftNode,
+  isRightNode,
   onClickNodeCode,
   onClickPreviousLevel,
 }: BinaryTreeInterface) => {
@@ -36,7 +40,14 @@ export const BinaryTree = ({
   };
 
   return (
-    <div className="binary-tree">
+    <div
+      className={`binary-tree 
+        ${isLeftNode ? 'left-line' : ''} ${isRightNode ? 'right-line' : ''} ${
+        (nodeTreeData?.l?.length || 0) > 0 || (nodeTreeData?.r?.length || 0) > 0
+          ? 'bottom-line'
+          : ''
+      }`}
+    >
       {nodeTreeData !== null && (
         <div className="node-container">
           <Node
@@ -67,6 +78,8 @@ export const BinaryTree = ({
                 key={node.code}
                 rootNodeCode={rootNodeCode}
                 nodeTreeData={node}
+                isLeftNode={true}
+                isRightNode={false}
                 onClickNodeCode={onClickNodeCode}
                 onClickPreviousLevel={onClickPreviousLevel}
               />
@@ -77,6 +90,8 @@ export const BinaryTree = ({
                 key={node.code}
                 rootNodeCode={rootNodeCode}
                 nodeTreeData={node}
+                isLeftNode={false}
+                isRightNode={true}
                 onClickNodeCode={onClickNodeCode}
                 onClickPreviousLevel={onClickPreviousLevel}
               />

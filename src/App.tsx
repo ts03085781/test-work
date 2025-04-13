@@ -57,6 +57,8 @@ function App() {
       <BinaryTree
         rootNodeCode={rootNode?.code}
         nodeTreeData={rootNode}
+        isLeftNode={false}
+        isRightNode={false}
         onClickNodeCode={onClickNodeCode}
         onClickPreviousLevel={onClickPreviousLevel}
       />
