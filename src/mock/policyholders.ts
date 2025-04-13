@@ -95,7 +95,7 @@ const mockData_1 = {
       ],
       r: [
         {
-          code: '007',
+          code: '07',
           name: '保戶 7',
           registration_date: new Date('2024-01-03'),
           introducer_code: '02',
@@ -207,7 +207,7 @@ const mockData_3 = {
   ],
   r: [
     {
-      code: '007',
+      code: '07',
       name: '保戶 7',
       registration_date: new Date('2024-01-03'),
       introducer_code: '02',
@@ -301,7 +301,7 @@ const mockData_6 = {
 };
 
 const mockData_7 = {
-  code: '007',
+  code: '07',
   name: '保戶 7',
   registration_date: new Date('2024-01-03'),
   introducer_code: '02',
