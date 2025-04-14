@@ -26,6 +26,7 @@ export const SearchBar = ({ onSearch }: SearchBarProps) => {
           type="text"
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
+          placeholder="請輸入 01"
         />
         <button className="search-bar-button" onClick={handleSearch}>
           查詢
