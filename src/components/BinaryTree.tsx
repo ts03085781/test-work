@@ -79,26 +79,34 @@ export const BinaryTree = ({
       )}
       {shouldShowChildrenContainer() && (
         <div className="node-container">
-          {nodeTreeData?.l?.map((node) => (
-            <BinaryTree
-              key={node.code}
-              rootNodeCode={rootNodeCode}
-              nodeTreeData={node}
-              nodePosition={NodePosition.LEFT}
-              onClickNodeCode={onClickNodeCode}
-              onClickPreviousLevel={onClickPreviousLevel}
-            />
-          ))}
-          {nodeTreeData?.r?.map((node) => (
-            <BinaryTree
-              key={node.code}
-              rootNodeCode={rootNodeCode}
-              nodeTreeData={node}
-              nodePosition={NodePosition.RIGHT}
-              onClickNodeCode={onClickNodeCode}
-              onClickPreviousLevel={onClickPreviousLevel}
-            />
-          ))}
+          {nodeTreeData?.l?.length ? (
+            nodeTreeData.l.map((node) => (
+              <BinaryTree
+                key={node.code}
+                rootNodeCode={rootNodeCode}
+                nodeTreeData={node}
+                nodePosition={NodePosition.LEFT}
+                onClickNodeCode={onClickNodeCode}
+                onClickPreviousLevel={onClickPreviousLevel}
+              />
+            ))
+          ) : (
+            <div className="blank-node"/>
+          )}
+          {nodeTreeData?.r?.length ? (
+            nodeTreeData.r.map((node) => (
+              <BinaryTree
+                key={node.code}
+                rootNodeCode={rootNodeCode}
+                nodeTreeData={node}
+                nodePosition={NodePosition.RIGHT}
+                onClickNodeCode={onClickNodeCode}
+                onClickPreviousLevel={onClickPreviousLevel}
+              />
+            ))
+          ) : (
+            <div className="blank-node"/>
+          )}
         </div>
       )}
     </div>

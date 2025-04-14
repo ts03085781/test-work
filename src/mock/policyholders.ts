@@ -28,12 +28,12 @@ const mockData_1 = {
             },
           ],
           r: [
-            // {
-            //   code: '09',
-            //   name: '保戶 9',
-            //   registration_date: new Date('2024-01-03'),
-            //   introducer_code: '02',
-            // },
+            {
+              code: '09',
+              name: '保戶 9',
+              registration_date: new Date('2024-01-03'),
+              introducer_code: '02',
+            },
           ],
         },
       ],
@@ -108,12 +108,12 @@ const mockData_1 = {
             },
           ],
           r: [
-            {
-              code: '15',
-              name: '保戶 15',
-              registration_date: new Date('2024-01-03'),
-              introducer_code: '02',
-            },
+            // {
+            //   code: '15',
+            //   name: '保戶 15',
+            //   registration_date: new Date('2024-01-03'),
+            //   introducer_code: '02',
+            // },
           ],
         },
       ],
@@ -220,12 +220,12 @@ const mockData_3 = {
         },
       ],
       r: [
-        {
-          code: '15',
-          name: '保戶 15',
-          registration_date: new Date('2024-01-03'),
-          introducer_code: '02',
-        },
+        // {
+        //   code: '15',
+        //   name: '保戶 15',
+        //   registration_date: new Date('2024-01-03'),
+        //   introducer_code: '02',
+        // },
       ],
     },
   ],
@@ -314,12 +314,12 @@ const mockData_7 = {
     },
   ],
   r: [
-    {
-      code: '15',
-      name: '保戶 15',
-      registration_date: new Date('2024-01-03'),
-      introducer_code: '02',
-    },
+    // {
+    //   code: '15',
+    //   name: '保戶 15',
+    //   registration_date: new Date('2024-01-03'),
+    //   introducer_code: '02',
+    // },
   ],
 };
 
@@ -386,14 +386,14 @@ const mockData_14 = {
   r: [],
 };
 
-const mockData_15 = {
-  code: '15',
-  name: '保戶 15',
-  registration_date: new Date('2024-01-03'),
-  introducer_code: '02',
-  l: [],
-  r: [],
-};
+// const mockData_15 = {
+//   code: '15',
+//   name: '保戶 15',
+//   registration_date: new Date('2024-01-03'),
+//   introducer_code: '02',
+//   l: [],
+//   r: [],
+// };
 
 export default [
   {
@@ -429,8 +429,8 @@ export default [
           return mockData_13;
         case '14':
           return mockData_14;
-        case '15':
-          return mockData_15;
+        // case '15':
+        //   return mockData_15;
         default:
           return null;
       }
@@ -460,7 +460,7 @@ export default [
         case '13':
           return mockData_6;
         case '14':
-        case '15':
+        // case '15':
           return mockData_7;
         default:
           return null;
