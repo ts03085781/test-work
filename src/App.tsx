@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { SearchBar } from './components/SearchBar';
 import { BinaryTree } from './components/BinaryTree';
-import './App.css';
 import { NodeInterface } from './constants/interface';
+import './App.css';
 
 function App() {
   const [rootNode, setRootNode] = useState<NodeInterface | null>(null);
