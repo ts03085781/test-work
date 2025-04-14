@@ -3,3 +3,8 @@ export enum NodeType {
   DIRECT = 'direct',
   INDIRECT = 'indirect',
 }
+
+export enum NodePosition {
+  LEFT = 'left',
+  RIGHT = 'right',
+}
