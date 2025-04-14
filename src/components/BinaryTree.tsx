@@ -1,8 +1,8 @@
-import '../assets/styles/binaryTree.css';
 import { NodeInterface } from '../constants/interface';
 import { Node } from './Node';
 import { NodeType, NodePosition } from '../constants/enum';
 import { IoIosArrowUp } from 'react-icons/io';
+import '../assets/styles/binaryTree.css';
 
 interface BinaryTreeInterface {
   rootNodeCode: string | undefined;
@@ -25,29 +25,40 @@ export const BinaryTree = ({
     }
   };
 
-  const setNodeType = (introducer_code: string) => {
-    if (nodeTreeData?.code === rootNodeCode) {
-      return NodeType.ROOT;
-    }
+  const getNodeType = (introducer_code: string): NodeType => {
+    const isRootNode = nodeTreeData?.code === rootNodeCode;
+    const isDirectNode = introducer_code === rootNodeCode;
 
-    if (introducer_code === rootNodeCode) {
-      return NodeType.DIRECT;
-    }
-
+    if (isRootNode) return NodeType.ROOT;
+    if (isDirectNode) return NodeType.DIRECT;
     return NodeType.INDIRECT;
   };
 
+
+  const shouldShowPreviousLevel = () => {
+    return rootNodeCode === nodeTreeData?.code && nodeTreeData?.introducer_code;
+  };
+
+
+  const shouldShowChildrenContainer = () => {
+    return nodeTreeData && (nodeTreeData.l || nodeTreeData.r);
+  };
+
+  /**
+   * 獲取節點容器的 CSS 類名
+   */
+  const getNodeContainerClassName = () => {
+    const baseClass = 'binary-tree';
+    const positionClass = nodePosition === NodePosition.LEFT ? 'left-line' : 
+                          nodePosition === NodePosition.RIGHT ? 'right-line' : '';
+    const hasChildren = (nodeTreeData?.l?.length || 0) > 0 || (nodeTreeData?.r?.length || 0) > 0;
+    const bottomLineClass = hasChildren ? 'bottom-line' : '';
+
+    return `${baseClass} ${positionClass} ${bottomLineClass}`.trim();
+  };
+
   return (
-    <div
-      className={`binary-tree 
-        ${nodePosition === NodePosition.LEFT ? 'left-line' : ''} ${
-        nodePosition === NodePosition.RIGHT ? 'right-line' : ''
-      } ${
-        (nodeTreeData?.l?.length || 0) > 0 || (nodeTreeData?.r?.length || 0) > 0
-          ? 'bottom-line'
-          : ''
-      }`}
-    >
+    <div className={getNodeContainerClassName()}>
       {nodeTreeData !== null && (
         <div className="node-container">
           <Node
@@ -55,45 +66,39 @@ export const BinaryTree = ({
             name={nodeTreeData.name}
             registration_date={nodeTreeData.registration_date}
             introducer_code={nodeTreeData.introducer_code}
-            nodeType={setNodeType(nodeTreeData.introducer_code)}
+            nodeType={getNodeType(nodeTreeData.introducer_code)}
             onClickNodeCode={onClickNodeCode}
           />
-          {rootNodeCode === nodeTreeData.code &&
-            nodeTreeData.introducer_code && (
-              <div
-                className="previous-level-container"
-                onClick={handleClickPreviousLevel}
-              >
-                <IoIosArrowUp />
-                <span>上一階</span>
-              </div>
-            )}
+          {shouldShowPreviousLevel() && (
+            <div className="previous-level-container" onClick={handleClickPreviousLevel}>
+              <IoIosArrowUp />
+              <span>上一階</span>
+            </div>
+          )}
         </div>
       )}
-      {nodeTreeData && (nodeTreeData.l || nodeTreeData.r) && (
+      {shouldShowChildrenContainer() && (
         <div className="node-container">
-          {nodeTreeData.l &&
-            nodeTreeData.l.map((node) => (
-              <BinaryTree
-                key={node.code}
-                rootNodeCode={rootNodeCode}
-                nodeTreeData={node}
-                nodePosition={NodePosition.LEFT}
-                onClickNodeCode={onClickNodeCode}
-                onClickPreviousLevel={onClickPreviousLevel}
-              />
-            ))}
-          {nodeTreeData.r &&
-            nodeTreeData.r.map((node) => (
-              <BinaryTree
-                key={node.code}
-                rootNodeCode={rootNodeCode}
-                nodeTreeData={node}
-                nodePosition={NodePosition.RIGHT}
-                onClickNodeCode={onClickNodeCode}
-                onClickPreviousLevel={onClickPreviousLevel}
-              />
-            ))}
+          {nodeTreeData?.l?.map((node) => (
+            <BinaryTree
+              key={node.code}
+              rootNodeCode={rootNodeCode}
+              nodeTreeData={node}
+              nodePosition={NodePosition.LEFT}
+              onClickNodeCode={onClickNodeCode}
+              onClickPreviousLevel={onClickPreviousLevel}
+            />
+          ))}
+          {nodeTreeData?.r?.map((node) => (
+            <BinaryTree
+              key={node.code}
+              rootNodeCode={rootNodeCode}
+              nodeTreeData={node}
+              nodePosition={NodePosition.RIGHT}
+              onClickNodeCode={onClickNodeCode}
+              onClickPreviousLevel={onClickPreviousLevel}
+            />
+          ))}
         </div>
       )}
     </div>
